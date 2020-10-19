@@ -33,6 +33,20 @@ Quizé ilustrar de manera **gráfica usando plots en python** a pesar de que tod
 > - Mi modulo plot.py que hace el plt.show() de las **iteraciones VS n (tamaño de mi arreglo)**
 
 ------------
+
+	import matplotlib.pyplot as plt
+		
+	def plot(xarr, yarr):
+    	plt.plot(xarr, yarr)
+    	plt.xlabel("n -size array")
+    	plt.ylabel("counts or iterations")
+    	plt.title("size vs iterations")
+    	plt.show()
+
+------------
+
+RESULTADO 🤗
+------------
 <a href="https://ibb.co/fnqbpSJ"><img src="https://i.ibb.co/mXbmqBp/README-png.png" alt="README-png" border="0"></a>
 
 ------------
