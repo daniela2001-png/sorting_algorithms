@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - function that swap inside of a array
+ * swap_3 - function that swap inside of a array
  * @a: int(pointer)
  * @b: int(pointer)
  * Return:type(void)
