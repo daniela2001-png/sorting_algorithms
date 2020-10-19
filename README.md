@@ -6,7 +6,7 @@ Quizé ilustrar de manera **gráfica usando plots en python** a pesar de que tod
 
 ------------
 
-> - Mi modulo **time.py **donde importo a mi función plot del modulo plot
+> - Mi modulo **time.py** donde importo a mi función plot del modulo plot
 
 
 ------------
