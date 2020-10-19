@@ -1,53 +1,49 @@
 #include "sort.h"
 
 /**
- * swap - intercambia nodos
- * @list: lista a ordenar
- * @derecha: nodo a la derecha a mover
- * @izquierda: nodo a la izquierda a mover
- * Return: return 0
+ * swap - swap position of two nodes
+ * @list:array to sort
+ * @left:pointer inte side left in the array
+ * @right:pointer inte side left in the array
+ * Return:type(void)
  */
-
-void swap(listint_t **list, listint_t *derecha, listint_t *izquierda)
+void swap(listint_t **list, listint_t *left, listint_t *right)
 {
-	derecha->next = izquierda->next;
-	/* si es el ultimo nodo*/
-	if (derecha->next != NULL)
-		derecha->prev->next = izquierda;
-	derecha->prev = izquierda->prev;
-	derecha->next = izquierda;
-	/* si es el primero nodo d ela lista*/
-	if (izquierda->prev != NULL)
-		izquierda->prev->next = derecha;
-	else
-		*list = derecha;
+		left->next = right->next;
+		if (right->next != NULL) /* Si es el ultimo nodo de la lista*/
+			right->next->prev = left;
+		right->prev = left->prev;
+		right->next = left;
+		if (left->prev != NULL) /* Si es el primer nodo de la lista */
+			left->prev->next = right;
+		else
+			*list = right;
+		left->prev = right;
 
 }
 
 /**
- * insertion_sort_list - mejor que el anterior
- * @list: lista a ordenar
- * Return: return 0
+ * insertion_sort_list - Sort doubly linked list ascending
+ * @list: array to sort
+ * Return: type(void)
  */
-
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *adelante = NULL;
-	listint_t *atras = NULL;
+		listint_t *fordward, *backward;
 
-	if (!list || !(*list) || !(*list)->next)
-		return;
+		if (!list || !(*list) || !(*list)->next)
+			return;
 
-	adelante = (*list)->next;
-	while (adelante)
-	{
-		atras = adelante->prev;
-		while (adelante->n < atras->n)
+		fordward = (*list)->next;
+		while (fordward)
 		{
-			swap(list, atras, adelante);
-			/* backward = fordward->prev; */
-			print_list(*list);
+			backward = fordward->prev;
+			while (backward && backward->n > fordward->n)
+			{
+				swap(list, backward, fordward);
+				backward = fordward->prev;
+				print_list(*list);
+			}
+			fordward = fordward->next;
 		}
-		adelante = adelante->next;
-	}
 }
