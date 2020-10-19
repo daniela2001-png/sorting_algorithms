@@ -1,40 +1,29 @@
 #include "sort.h"
-
 /**
- * swap_2 - intercambia el valor de un nodo
- * @xp: 1er valor
- * @yp:2do valor
- * Return: void
+ * selection_sort - Sort array
+ * @array: array to sort
+ * @size: size of array
  */
-
-void swap_2(int *xp, int *yp)
-{
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
-}
-
-/**
- * selection_sort - algoritmo
- * @array: arregloa ordenar
- * @size: tamaño de mi arreglo
- * Return: void
- */
-
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, min_idx;
+		size_t i, j;
+		int *aux, *swap, tmp;
 
-	if (!array || size < 2)
-		return;
-
-	for (i = 0; i < size - 1; i++)
-	{
-		min_idx = i;
-		for (j = i + 1; j < size; j++)
-			if (array[j] < array[min_idx])
-				min_idx = j;
-		swap_2(&array[min_idx], &array[i]);
-		print_array(array, size);
-	}
+		if (!array || size < 2)
+			return;
+		for (i = 0; i < size - 1; i++)
+		{
+			aux = array + i;
+			for (j = i + 1; j < size; j++)
+				if (array[j] < *aux)
+					aux = array + j;
+			if (array + i != aux)
+			{
+				swap = array + i;
+				tmp = *swap;
+				*swap = *aux;
+				*aux = tmp;
+				print_array(array, size);
+			}
+		}
 }
