@@ -11,7 +11,7 @@ Quizé ilustrar de manera **gráfica usando plots en python** a pesar de que tod
 
 ------------
 
-
+´´´
 	from plot import plot
 	import random
 	# Test array
@@ -27,6 +27,8 @@ Quizé ilustrar de manera **gráfica usando plots en python** a pesar de que tod
 
 	# and graph it
 	plot (size, iters)
+
+´´´
 
 ------------
 
